@@ -11,7 +11,7 @@
 <style>
 body {
   margin: 0;
-  background-color: #eee; 
+  background-color: #eee;
 }
 .info {
   position: absolute;
@@ -37,7 +37,7 @@ body {
 </div>
 
 <div id="types">
-<!-- Pick a data type:<br/> 
+<!-- Pick a data type:<br/>
 <input id="radio" type="hidden"type="radio" value="total" name="type" >Total Conversations</input><br/>
 <input id="radio" type="radio" value="percent" name="type" checked="checked">Conversations per Population</input>
 -->
@@ -172,7 +172,7 @@ svg.append("g")
 var counties = "https://raw.githubusercontent.com/umbcvis/classes/master/class-14/counties.json";
 var zip = "zips_us_topo.json";
 var population = "CTL AGG County_4YearsOnlyv1.csv" ;
-var population_zip = "http://difranzo.com/ctl/CTL_AGG_ZIPCODE_4YearsOnly.csv" ;
+var population_zip = "CTL_AGG_ZIPCODE_4YearsOnly.csv" ;
 var nypop = "population.json" ;
 var nypop_zip = "nys_pop_zip.json" ;
 var county_mh = "CTL_County_MH_Res.csv" ;
@@ -203,10 +203,10 @@ function ready(error, us, us_zip, population, population_zip, county_mh_csv, nyp
   nypop_zip.forEach(function(d, i) {
     //if (i === 0) return;  // skip the first line in the population data
     popdata_zip.set(d.zip, d.population); //(zip, zip overall population)
-    //popdata_zip.set(d.zip), 
+    //popdata_zip.set(d.zip),
   });
 
-  
+
   county_mh_csv.forEach(function(d,i){
     if (i === 0 || i === 1) return;
     county_mh_data.set(d.FIPS, [{key:"Resources", value: d.NumResources},
@@ -429,11 +429,11 @@ function ready(error, us, us_zip, population, population_zip, county_mh_csv, nyp
   projection.fitExtent([[10,10],[960 - 20, 500 - 20]], { type: "FeatureCollection", features: newyork });
 
 map_counties();
-  
+
 }
 
 function map_counties(){
-  
+
 
   // Plot the individual counties
   svg.selectAll('path.county')
@@ -492,7 +492,7 @@ function map_counties(){
         d3.select("#month_div").selectAll("svg").remove();
         d3.select("#day_div").selectAll("svg").remove();
         d3.select("#hour_div").selectAll("svg").remove();
-        d3.selectAll(".legend").remove(); 
+        d3.selectAll(".legend").remove();
       });
 }
 
@@ -587,13 +587,13 @@ function addBar(data, type){
 }
 
 function addPie(data) {
-  
+
   data.sort(function (a, b) {
   return b.value - a.value;
   });
 
   var tops = data.slice(0,6);
-  tops = tops.reverse(); 
+  tops = tops.reverse();
 
   //top topic bars
   var topic_x = d3.scaleLinear().range([0, 200]);
